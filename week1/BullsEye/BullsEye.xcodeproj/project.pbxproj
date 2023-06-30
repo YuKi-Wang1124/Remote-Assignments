@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC09C7282A4D389700880059 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC09C7272A4D389700880059 /* AboutViewController.swift */; };
+		CC09C7302A4D776E00880059 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC09C72F2A4D776D00880059 /* WebKit.framework */; };
 		CCB4EE362A4C1F4D001B349F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB4EE352A4C1F4D001B349F /* AppDelegate.swift */; };
 		CCB4EE382A4C1F4D001B349F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB4EE372A4C1F4D001B349F /* SceneDelegate.swift */; };
 		CCB4EE3A2A4C1F4D001B349F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB4EE392A4C1F4D001B349F /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CC09C7272A4D389700880059 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		CC09C72F2A4D776D00880059 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		CCB4EE322A4C1F4D001B349F /* BullsEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BullsEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCB4EE352A4C1F4D001B349F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCB4EE372A4C1F4D001B349F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +35,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC09C7302A4D776E00880059 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC09C72E2A4D776C00880059 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CC09C72F2A4D776D00880059 /* WebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CCB4EE292A4C1F4D001B349F = {
 			isa = PBXGroup;
 			children = (
 				CCB4EE342A4C1F4D001B349F /* BullsEye */,
 				CCB4EE332A4C1F4D001B349F /* Products */,
+				CC09C72E2A4D776C00880059 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,6 +73,7 @@
 				CCB4EE352A4C1F4D001B349F /* AppDelegate.swift */,
 				CCB4EE372A4C1F4D001B349F /* SceneDelegate.swift */,
 				CCB4EE392A4C1F4D001B349F /* ViewController.swift */,
+				CC09C7272A4D389700880059 /* AboutViewController.swift */,
 				CCB4EE3B2A4C1F4D001B349F /* Main.storyboard */,
 				CCB4EE3E2A4C1F50001B349F /* Assets.xcassets */,
 				CCB4EE402A4C1F50001B349F /* LaunchScreen.storyboard */,
@@ -140,6 +155,7 @@
 			files = (
 				CCB4EE3A2A4C1F4D001B349F /* ViewController.swift in Sources */,
 				CCB4EE362A4C1F4D001B349F /* AppDelegate.swift in Sources */,
+				CC09C7282A4D389700880059 /* AboutViewController.swift in Sources */,
 				CCB4EE382A4C1F4D001B349F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,11 +301,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VP4GBKDNYR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BullsEye/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Bull's Eye";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -313,11 +331,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VP4GBKDNYR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BullsEye/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Bull's Eye";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

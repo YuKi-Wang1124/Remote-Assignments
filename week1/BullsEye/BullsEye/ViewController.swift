@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         let roundedVaule = slider.value.rounded()
         currentValue = Int(roundedVaule)
-        startNewRound()
+        startNewGame()
     }
     
     
@@ -85,6 +85,13 @@ class ViewController: UIViewController {
     }
     
     
+    @IBAction func startOver(_ buttton: UIButton) {
+        
+        startNewGame()
+        
+    }
+    
+    
     func startNewRound() {
         
         round += 1
@@ -96,9 +103,20 @@ class ViewController: UIViewController {
     }
 
     func updateLabel() {
+        
         targetScoreLebal.text = String(targetNumber)
         ScoreLabel.text = String(score)
         roundLabel.text = String(round)
+        
+    }
+    
+    
+    func startNewGame() {
+        
+        score = 0
+        round = 0
+        startNewRound()
+        
     }
     
 }
