@@ -7,19 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC6B354F2A54772400E14B05 /* StoryPrompts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6B354D2A54772300E14B05 /* StoryPrompts.swift */; };
+		CC6B35502A54772400E14B05 /* StoryPromptEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6B354E2A54772400E14B05 /* StoryPromptEntry.swift */; };
+		CC8B8A162A5566E9007585C6 /* StoryPromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8B8A152A5566E9007585C6 /* StoryPromptViewController.swift */; };
+		CCD76E6A2A55C20F00EF4588 /* StoryPromprTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD76E692A55C20F00EF4588 /* StoryPromprTableViewController.swift */; };
 		CCF5EB582A513B7D006C764C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF5EB572A513B7D006C764C /* AppDelegate.swift */; };
 		CCF5EB5A2A513B7D006C764C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF5EB592A513B7D006C764C /* SceneDelegate.swift */; };
-		CCF5EB5C2A513B7D006C764C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF5EB5B2A513B7D006C764C /* ViewController.swift */; };
+		CCF5EB5C2A513B7D006C764C /* AddStoryPromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF5EB5B2A513B7D006C764C /* AddStoryPromptViewController.swift */; };
 		CCF5EB5F2A513B7D006C764C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCF5EB5D2A513B7D006C764C /* Main.storyboard */; };
 		CCF5EB612A513B82006C764C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCF5EB602A513B82006C764C /* Assets.xcassets */; };
 		CCF5EB642A513B82006C764C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCF5EB622A513B82006C764C /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CC6B354D2A54772300E14B05 /* StoryPrompts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryPrompts.swift; sourceTree = "<group>"; };
+		CC6B354E2A54772400E14B05 /* StoryPromptEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryPromptEntry.swift; sourceTree = "<group>"; };
+		CC8B8A152A5566E9007585C6 /* StoryPromptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPromptViewController.swift; sourceTree = "<group>"; };
+		CCD76E692A55C20F00EF4588 /* StoryPromprTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPromprTableViewController.swift; sourceTree = "<group>"; };
 		CCF5EB542A513B7D006C764C /* StoryPrompt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoryPrompt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCF5EB572A513B7D006C764C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCF5EB592A513B7D006C764C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CCF5EB5B2A513B7D006C764C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CCF5EB5B2A513B7D006C764C /* AddStoryPromptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStoryPromptViewController.swift; sourceTree = "<group>"; };
 		CCF5EB5E2A513B7D006C764C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CCF5EB602A513B82006C764C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CCF5EB632A513B82006C764C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -37,6 +45,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC6B354C2A54764E00E14B05 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CC6B354E2A54772400E14B05 /* StoryPromptEntry.swift */,
+				CC6B354D2A54772300E14B05 /* StoryPrompts.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		CC8B8A172A5566F1007585C6 /* View Controolers */ = {
+			isa = PBXGroup;
+			children = (
+				CCF5EB5B2A513B7D006C764C /* AddStoryPromptViewController.swift */,
+				CC8B8A152A5566E9007585C6 /* StoryPromptViewController.swift */,
+				CCD76E692A55C20F00EF4588 /* StoryPromprTableViewController.swift */,
+			);
+			name = "View Controolers";
+			sourceTree = "<group>";
+		};
 		CCF5EB4B2A513B7D006C764C = {
 			isa = PBXGroup;
 			children = (
@@ -56,9 +83,10 @@
 		CCF5EB562A513B7D006C764C /* StoryPrompt */ = {
 			isa = PBXGroup;
 			children = (
+				CC8B8A172A5566F1007585C6 /* View Controolers */,
+				CC6B354C2A54764E00E14B05 /* Model */,
 				CCF5EB572A513B7D006C764C /* AppDelegate.swift */,
 				CCF5EB592A513B7D006C764C /* SceneDelegate.swift */,
-				CCF5EB5B2A513B7D006C764C /* ViewController.swift */,
 				CCF5EB5D2A513B7D006C764C /* Main.storyboard */,
 				CCF5EB602A513B82006C764C /* Assets.xcassets */,
 				CCF5EB622A513B82006C764C /* LaunchScreen.storyboard */,
@@ -138,9 +166,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCF5EB5C2A513B7D006C764C /* ViewController.swift in Sources */,
+				CC8B8A162A5566E9007585C6 /* StoryPromptViewController.swift in Sources */,
+				CC6B35502A54772400E14B05 /* StoryPromptEntry.swift in Sources */,
+				CCF5EB5C2A513B7D006C764C /* AddStoryPromptViewController.swift in Sources */,
 				CCF5EB582A513B7D006C764C /* AppDelegate.swift in Sources */,
+				CCD76E6A2A55C20F00EF4588 /* StoryPromprTableViewController.swift in Sources */,
 				CCF5EB5A2A513B7D006C764C /* SceneDelegate.swift in Sources */,
+				CC6B354F2A54772400E14B05 /* StoryPrompts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,8 +325,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -321,8 +353,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

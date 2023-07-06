@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  A_Simpl_App
+//  Remote_Assignment_Week2
 //
-//  Created by 王昱淇 on 2023/7/3.
+//  Created by 王昱淇 on 2023/7/6.
 //
 
 import UIKit
