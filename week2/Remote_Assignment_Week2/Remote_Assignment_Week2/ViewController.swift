@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         
         topLabel.font = UIFont.systemFont(ofSize: 16)
         topLabel.textColor = UIColor.white
-        topLabel.text = "Did yoy Know?"
+        topLabel.text = "Did you Know?"
         topLabel.translatesAutoresizingMaskIntoConstraints = false
         
         middleLabel.font = UIFont.systemFont(ofSize: 16)
