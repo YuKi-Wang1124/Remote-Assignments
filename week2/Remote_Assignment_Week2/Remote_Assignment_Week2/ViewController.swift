@@ -15,12 +15,12 @@ class ViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        setStartView()
+        setUI()
         changeContent()
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
     }
 
-    func setStartView() {
+    func setUI() {
         view.addSubview(topLabel)
         view.addSubview(middleLabel)
         view.addSubview(button)
@@ -54,6 +54,7 @@ class ViewController: UIViewController {
               button.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -40)
             ]
         )
+        
     }
     
     @objc func buttonAction(_ sender: UIButton) {
