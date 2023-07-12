@@ -141,6 +141,7 @@ class ViewController: UIViewController {
         accountLabel.text = "Account"
         accountTextField.backgroundColor = .white
         accountTextField.borderStyle = .roundedRect
+        accountTextField.keyboardType = .asciiCapable
         accountStackView.alignment = .fill
         accountStackView.axis = .horizontal
         accountStackView.addArrangedSubview(accountLabel)
@@ -151,6 +152,7 @@ class ViewController: UIViewController {
         passwordLabel.text = "Password"
         passwordTextField.backgroundColor = .white
         passwordTextField.borderStyle = .roundedRect
+        passwordTextField.keyboardType = .asciiCapable
         passwordStackView.alignment = .fill
         passwordStackView.axis = .horizontal
         passwordStackView.addArrangedSubview(passwordLabel)
@@ -160,6 +162,7 @@ class ViewController: UIViewController {
         checkLabel.textColor = .gray
         checkTextField.backgroundColor = .gray
         checkTextField.borderStyle = .roundedRect
+        checkTextField.keyboardType = .asciiCapable
         checkTextField.isUserInteractionEnabled = false
         checktackView.alignment = .fill
         checktackView.axis = .horizontal
