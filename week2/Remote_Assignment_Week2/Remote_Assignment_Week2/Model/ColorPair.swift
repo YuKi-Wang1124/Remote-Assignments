@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class colorPair {
+class ColorPair {
     let color: UIColor
     let text: String
     
