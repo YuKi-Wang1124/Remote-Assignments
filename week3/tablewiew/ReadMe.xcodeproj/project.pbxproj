@@ -16,6 +16,7 @@
 		CC22B4202A5BC583006539FE /* NewBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC22B41F2A5BC583006539FE /* NewBookCell.swift */; };
 		CC30E8272A5850D6009E95AE /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC30E8262A5850D6009E95AE /* Book.swift */; };
 		CC5AA92A2A5C0D9600C84555 /* AddNewBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5AA9292A5C0D9600C84555 /* AddNewBookViewController.swift */; };
+		CC5F0EDF2A5E911F006A3ADC /* LibraryHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC5F0EDE2A5E911F006A3ADC /* LibraryHeaderView.xib */; };
 		CCAA72A12A5B9F99005CA378 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAA72A02A5B9F99005CA378 /* BookCell.swift */; };
 		CCE1EFA62A5A749200E63374 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE1EFA52A5A749200E63374 /* DetailViewController.swift */; };
 		CCE1EFA82A5B0E4800E63374 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE1EFA72A5B0E4800E63374 /* Library.swift */; };
@@ -33,6 +34,7 @@
 		CC22B41F2A5BC583006539FE /* NewBookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookCell.swift; sourceTree = "<group>"; };
 		CC30E8262A5850D6009E95AE /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		CC5AA9292A5C0D9600C84555 /* AddNewBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewBookViewController.swift; sourceTree = "<group>"; };
+		CC5F0EDE2A5E911F006A3ADC /* LibraryHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LibraryHeaderView.xib; sourceTree = "<group>"; };
 		CCAA72A02A5B9F99005CA378 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		CCE1EFA52A5A749200E63374 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		CCE1EFA72A5B0E4800E63374 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				0AEE2FF92506B62A003FCA10 /* AppDelegate.swift */,
 				0AEE2FFB2506B62A003FCA10 /* SceneDelegate.swift */,
 				0AEE2FFD2506B62A003FCA10 /* LibraryViewController.swift */,
+				CC5F0EDE2A5E911F006A3ADC /* LibraryHeaderView.xib */,
 				CCE1EFA52A5A749200E63374 /* DetailViewController.swift */,
 				CCE1EFA72A5B0E4800E63374 /* Library.swift */,
 				0AEE2FFF2506B62A003FCA10 /* Main.storyboard */,
@@ -145,6 +148,7 @@
 				0AEE30062506B62B003FCA10 /* LaunchScreen.storyboard in Resources */,
 				0AEE30032506B62B003FCA10 /* Assets.xcassets in Resources */,
 				0AEE30012506B62A003FCA10 /* Main.storyboard in Resources */,
+				CC5F0EDF2A5E911F006A3ADC /* LibraryHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

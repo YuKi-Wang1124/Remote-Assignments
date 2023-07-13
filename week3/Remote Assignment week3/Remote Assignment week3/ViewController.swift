@@ -67,6 +67,7 @@ class ViewController: UIViewController {
                 presentAlert(title: "Success", message: "Sign up successfully!")
             }
         }
+        
     }
                 
     @objc func changeSelection(_ sender: UISegmentedControl!) {
@@ -104,7 +105,12 @@ class ViewController: UIViewController {
     
     func presentAlert(title: String, message: String, preferredStyle: UIAlertController.Style = .alert) {
         alert = UIAlertController(title: title, message: message, preferredStyle: preferredStyle)
-        alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertAction = UIAlertAction(title: "OK", style: .default, handler: { [self] _ in
+            self.accountTextField.text = ""
+            self.passwordTextField.text = ""
+            self.checkTextField.text = ""
+        })
+        
         alert.addAction(alertAction)
         present(alert, animated: true)
     }

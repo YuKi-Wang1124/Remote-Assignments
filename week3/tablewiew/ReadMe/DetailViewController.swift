@@ -1,7 +1,7 @@
 import UIKit
 
 class DetailViewController: UITableViewController {
-    let book: Book
+    var book: Book
     
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var authorLabel: UILabel!
@@ -19,7 +19,7 @@ class DetailViewController: UITableViewController {
 
     override func viewDidLoad() {
       super.viewDidLoad()
-      imageView.image = book.image
+      imageView.image = book.image ?? LibrarySymbol.letterSquare(letter: book.title.first).image
       imageView.layer.cornerRadius = 16
       titleLabel.text = book.title
       authorLabel.text = book.author
@@ -45,6 +45,7 @@ extension DetailViewController: UIImagePickerControllerDelegate, UINavigationCon
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             imageView.image = selectedImage
+            book.image = selectedImage
             Library.saveImage(selectedImage, forBook: book)
         } else { return }
         dismiss(animated: true)
