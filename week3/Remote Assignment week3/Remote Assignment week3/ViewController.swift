@@ -2,40 +2,22 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let titleLabel = UILabel()
     let loginRegisterSegment = CustomSegmentControl(items: ["Log In", "Sign up"])
-    let button = UIButton()
-    
-    let accountStackView = UIStackView()
-    let passwordStackView = UIStackView()
-    let checktackView = UIStackView()
-    let grayStackView = UIStackView()
     let grayView = UIView()
-    
-    let accountLabel = UILabel()
-    let passwordLabel =  UILabel()
-    let checkLabel = UILabel()
-    
+    let button = UIButton()
+    var checkLabel = UILabel()
     var accountTextField = UITextField()
     var passwordTextField = UITextField()
     var checkTextField = UITextField()
-
     var alert = UIAlertController()
     var alertAction = UIAlertAction()
-    
     let tapGesture = UITapGestureRecognizer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                    
-        accountTextField.tag = 1
-        passwordTextField.tag = 2
-        checkTextField.tag = 3
         accountTextField.delegate = self
         passwordTextField.delegate = self
         checkTextField.delegate = self
-        
-        view.addGestureRecognizer(tapGesture)
         
         setUI()
         loginRegisterSegment.addTarget(self, action: #selector(changeSelection(_:)), for: .valueChanged)
@@ -52,13 +34,16 @@ class ViewController: UIViewController {
             presentAlert(title: "Error", message: "Password should not be empty.")
         }
         
-        if loginRegisterSegment.selectedSegmentIndex == 0 {
-            if accountTextField.text?.trimmingCharacters(in: .whitespaces) == "appworks_school" && passwordTextField.text?.trimmingCharacters(in: .whitespaces) == "1234" {
+        switch loginRegisterSegment.selectedSegmentIndex {
+        case 0:
+            if accountTextField.text?.trimmingCharacters(in: .whitespaces) == "appworks_school"
+                && passwordTextField.text?.trimmingCharacters(in: .whitespaces) == "1234" {
                 presentAlert(title: "Success", message: "Log in Successfully!")
             } else {
                 presentAlert(title: "Error", message: "Login fail")
             }
-        } else if loginRegisterSegment.selectedSegmentIndex == 1 {
+            
+        case 1:
             if checkTextField.text == "" {
                 presentAlert(title: "Error", message: "Check Password should not be empty.")
             } else if passwordTextField.text?.trimmingCharacters(in: .whitespaces) != checkTextField.text?.trimmingCharacters(in: .whitespaces) {
@@ -66,8 +51,10 @@ class ViewController: UIViewController {
             } else {
                 presentAlert(title: "Success", message: "Sign up successfully!")
             }
+            
+        default:
+            fatalError("Error")
         }
-        
     }
                 
     @objc func changeSelection(_ sender: UISegmentedControl!) {
@@ -76,21 +63,14 @@ class ViewController: UIViewController {
             checkLabel.textColor = .gray
             checkTextField.backgroundColor = .gray
             checkTextField.isUserInteractionEnabled = false
-            
-            accountTextField.text = ""
-            passwordTextField.text = ""
-            checkTextField.text = ""
+            emptyTextField()
             
         case 1:
             checkLabel.textColor = .black
             checkTextField.backgroundColor = .white
             checkTextField.isUserInteractionEnabled = true
-            
             grayView.tag = 4
-            
-            accountTextField.text = ""
-            passwordTextField.text = ""
-            checkTextField.text = ""
+            emptyTextField()
             
         default:
             fatalError()
@@ -103,90 +83,55 @@ class ViewController: UIViewController {
         checkTextField.resignFirstResponder()
     }
     
-    func presentAlert(title: String, message: String, preferredStyle: UIAlertController.Style = .alert) {
-        alert = UIAlertController(title: title, message: message, preferredStyle: preferredStyle)
-        alertAction = UIAlertAction(title: "OK", style: .default, handler: { [self] _ in
-            self.accountTextField.text = ""
-            self.passwordTextField.text = ""
-            self.checkTextField.text = ""
-        })
-        
-        alert.addAction(alertAction)
-        present(alert, animated: true)
-    }
-    
     func setUI() {
-        let autolayoutObjects = [titleLabel, button, accountLabel, passwordLabel, checkLabel, accountTextField, passwordTextField, checkTextField, accountStackView, passwordStackView, checktackView, grayStackView, grayView]
-        
-        for i in autolayoutObjects {
-            i.translatesAutoresizingMaskIntoConstraints = false
-        }
-        
-        titleLabel.text = "AppWorks School"
-        titleLabel.font = UIFont.systemFont(ofSize: 40)
-        titleLabel.textColor = .black
-        
         grayView.backgroundColor = .systemGray3
         
+        let titleLabel = createLabel(text: "AppWorks School", fontSize: 40)
+        let accountLabel = createLabel(text: "Account")
+        let passwordLabel = createLabel(text: "Password")
+        checkLabel = createLabel(text: "Check", textColor: .gray)
+        passwordLabel.setContentHuggingPriority(.required, for: .horizontal)
+        passwordLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
+        
+        accountTextField = setCustomTextField(textField: accountTextField, tag: 1)
+        passwordTextField = setCustomTextField(textField: passwordTextField, tag: 2)
+        checkTextField = setCustomTextField(textField: checkTextField, tag: 3)
+        checkTextField.backgroundColor = .gray
+        checkTextField.isUserInteractionEnabled = false
+       
         button.setTitle("Button", for: .normal)
         button.tintColor = .white
         button.backgroundColor = .black
         
-        configureStackView()
+        var accountStackView = UIStackView()
+        var passwordStackView = UIStackView()
+        var checkstackView = UIStackView()
+        let grayStackView = UIStackView()
+        accountStackView = addHorizontalStackView(add: accountLabel, and: accountTextField, to: accountStackView)
+        passwordStackView = addHorizontalStackView(add: passwordLabel, and: passwordTextField, to: passwordStackView)
+        passwordStackView.spacing = 8
+        checkstackView = addHorizontalStackView(add: checkLabel, and: checkTextField, to: checkstackView)
+        grayStackView.distribution = .fillEqually
+        grayStackView.axis = .vertical
+        grayStackView.spacing = 8
+        grayStackView.addArrangedSubview(accountStackView)
+        grayStackView.addArrangedSubview(passwordStackView)
+        grayStackView.addArrangedSubview(checkstackView)
         
+        grayView.addSubview(grayStackView)
         view.backgroundColor = .white
         view.addSubview(titleLabel)
         view.addSubview(loginRegisterSegment)
         view.addSubview(grayView)
         view.addSubview(button)
+        view.addGestureRecognizer(tapGesture)
         
-        setConstraint()
-    }
-    
-    func configureStackView() {
-        accountLabel.text = "Account"
-        accountTextField.backgroundColor = .white
-        accountTextField.borderStyle = .roundedRect
-        accountTextField.keyboardType = .asciiCapable
-        accountStackView.alignment = .fill
-        accountStackView.axis = .horizontal
-        accountStackView.addArrangedSubview(accountLabel)
-        accountStackView.addArrangedSubview(accountTextField)
+        let autolayoutObjects = [titleLabel, button, accountStackView, passwordStackView, checkstackView, grayStackView, grayView, accountTextField, passwordTextField, checkTextField]
         
-        passwordLabel.setContentHuggingPriority(.required, for: .horizontal)
-        passwordLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
-        passwordLabel.text = "Password"
-        passwordTextField.backgroundColor = .white
-        passwordTextField.borderStyle = .roundedRect
-        passwordTextField.keyboardType = .asciiCapable
-        passwordStackView.alignment = .fill
-        passwordStackView.axis = .horizontal
-        passwordStackView.addArrangedSubview(passwordLabel)
-        passwordStackView.addArrangedSubview(passwordTextField)
+        for i in autolayoutObjects {
+            i.translatesAutoresizingMaskIntoConstraints = false
+        }
         
-        checkLabel.text = "Check"
-        checkLabel.textColor = .gray
-        checkTextField.backgroundColor = .gray
-        checkTextField.borderStyle = .roundedRect
-        checkTextField.keyboardType = .asciiCapable
-        checkTextField.isUserInteractionEnabled = false
-        checktackView.alignment = .fill
-        checktackView.axis = .horizontal
-        checktackView.addArrangedSubview(checkLabel)
-        checktackView.addArrangedSubview(checkTextField)
-        
-        grayStackView.distribution = .fillEqually
-        grayStackView.axis = .vertical
-        grayStackView.spacing = 8
-        
-        grayStackView.addArrangedSubview(accountStackView)
-        grayStackView.addArrangedSubview(passwordStackView)
-        grayStackView.addArrangedSubview(checktackView)
-        
-        grayView.addSubview(grayStackView)
-    }
-    
-    func setConstraint() {
         NSLayoutConstraint.activate(
             [
                 titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
@@ -206,7 +151,6 @@ class ViewController: UIViewController {
                 grayStackView.leadingAnchor.constraint(equalTo: grayView.leadingAnchor, constant: 8),
                 grayStackView.trailingAnchor.constraint(equalTo:grayView.trailingAnchor, constant: -8),
                 
-                passwordLabel.trailingAnchor.constraint(equalTo: passwordTextField.leadingAnchor, constant: -8),
                 accountTextField.leadingAnchor.constraint(equalTo: passwordTextField.leadingAnchor),
                 checkTextField.leadingAnchor.constraint(equalTo: passwordTextField.leadingAnchor),
                 
@@ -216,6 +160,48 @@ class ViewController: UIViewController {
                 button.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             ]
         )
+    }
+    
+    func createLabel(text: String, textColor: UIColor = .black, fontSize: CGFloat = 17) -> UILabel {
+        let label = UILabel()
+        label.text = text
+        label.textColor = textColor
+        label.font = UIFont.systemFont(ofSize: fontSize)
+        
+        return label
+    }
+    
+    func setCustomTextField(textField: UITextField, tag: Int) -> UITextField {
+        textField.backgroundColor = .white
+        textField.borderStyle = .roundedRect
+        textField.keyboardType = .asciiCapable
+        textField.tag = tag
+        
+        return textField
+    }
+    
+    func emptyTextField() {
+        self.accountTextField.text = ""
+        self.passwordTextField.text = ""
+        self.checkTextField.text = ""
+    }
+    
+    func addHorizontalStackView(add label: UILabel, and textField: UITextField, to stackView: UIStackView) -> UIStackView {
+        stackView.alignment = .fill
+        stackView.axis = .horizontal
+        stackView.addArrangedSubview(label)
+        stackView.addArrangedSubview(textField)
+        
+        return stackView
+    }
+    
+    func presentAlert(title: String, message: String, preferredStyle: UIAlertController.Style = .alert) {
+        alert = UIAlertController(title: title, message: message, preferredStyle: preferredStyle)
+        alertAction = UIAlertAction(title: "OK", style: .default, handler: { [self] _ in
+            emptyTextField()
+        })
+        alert.addAction(alertAction)
+        present(alert, animated: true)
     }
 }
 
@@ -242,3 +228,4 @@ extension UITextField {
         return  isContained
     }
 }
+
