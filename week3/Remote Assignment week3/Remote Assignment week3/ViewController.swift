@@ -9,8 +9,6 @@ class ViewController: UIViewController {
     var accountTextField = UITextField()
     var passwordTextField = UITextField()
     var checkTextField = UITextField()
-    var alert = UIAlertController()
-    var alertAction = UIAlertAction()
     let tapGesture = UITapGestureRecognizer()
     
     override func viewDidLoad() {
@@ -29,11 +27,9 @@ class ViewController: UIViewController {
         if accountTextField.text == "" {
             presentAlert(title: "Error", message: "Account should not be empty.")
         }
-        
         if passwordTextField.text == ""  {
             presentAlert(title: "Error", message: "Password should not be empty.")
         }
-        
         switch loginRegisterSegment.selectedSegmentIndex {
         case 0:
             if accountTextField.text?.trimmingCharacters(in: .whitespaces) == "appworks_school"
@@ -42,7 +38,6 @@ class ViewController: UIViewController {
             } else {
                 presentAlert(title: "Error", message: "Login fail")
             }
-            
         case 1:
             if checkTextField.text == "" {
                 presentAlert(title: "Error", message: "Check Password should not be empty.")
@@ -51,7 +46,6 @@ class ViewController: UIViewController {
             } else {
                 presentAlert(title: "Success", message: "Sign up successfully!")
             }
-            
         default:
             fatalError("Error")
         }
@@ -64,14 +58,12 @@ class ViewController: UIViewController {
             checkTextField.backgroundColor = .gray
             checkTextField.isUserInteractionEnabled = false
             emptyTextField()
-            
         case 1:
             checkLabel.textColor = .black
             checkTextField.backgroundColor = .white
             checkTextField.isUserInteractionEnabled = true
             grayView.tag = 4
             emptyTextField()
-            
         default:
             fatalError()
         }
@@ -196,6 +188,8 @@ class ViewController: UIViewController {
     }
     
     func presentAlert(title: String, message: String, preferredStyle: UIAlertController.Style = .alert) {
+        var alert = UIAlertController()
+        var alertAction = UIAlertAction()
         alert = UIAlertController(title: title, message: message, preferredStyle: preferredStyle)
         alertAction = UIAlertAction(title: "OK", style: .default, handler: { [self] _ in
             emptyTextField()
