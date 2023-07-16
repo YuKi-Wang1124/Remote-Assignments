@@ -119,9 +119,8 @@ class ViewController: UIViewController {
         view.addGestureRecognizer(tapGesture)
         
         let autolayoutObjects = [titleLabel, button, accountStackView, passwordStackView, checkstackView, grayStackView, grayView, accountTextField, passwordTextField, checkTextField]
-        
-        for i in autolayoutObjects {
-            i.translatesAutoresizingMaskIntoConstraints = false
+        autolayoutObjects.forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
         }
         
         NSLayoutConstraint.activate(
