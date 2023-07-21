@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     }
 
     func getData() {
-        DispatchQueue.main.async {
+        DispatchQueue.global(qos: .userInteractive).async {
             if let url = URL(string: "https://remote-assignment.s3.ap-northeast-1.amazonaws.com/station") {
                 var request = URLRequest(url: url)
                 request.httpMethod = "GET"
@@ -38,7 +38,6 @@ class ViewController: UIViewController {
                         if let data = data {
                             let decoder = JSONDecoder()
                             let stationInfo = try decoder.decode(StationInfo.self, from: data)
-                            print(stationInfo)
                             Task {
                                 @MainActor in
                                 self.stationIDLabel.text = stationInfo.stationID
@@ -90,7 +89,6 @@ class ViewController: UIViewController {
             addressLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             addressLabel.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -200)
         ])
-        
     }
 }
 
