@@ -36,8 +36,8 @@ class ViewController: UIViewController, UITableViewDelegate {
             cellTitles.append(title)
         }
         tableView.delegate = self
-        tableView.frame = view.bounds
         view.addSubview(tableView)
+        tableViewLayout()
         dataSource = UITableViewDiffableDataSource(tableView: tableView, cellProvider: { tableView, indexPath, model -> UITableViewCell in
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             var content = cell.defaultContentConfiguration()
@@ -50,6 +50,17 @@ class ViewController: UIViewController, UITableViewDelegate {
         snapshot.appendItems(cellTitles)
         dataSource.apply(snapshot, animatingDifferences: false, completion: nil)
     }
+    
+    func tableViewLayout() {
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+        ])
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         100
     }
